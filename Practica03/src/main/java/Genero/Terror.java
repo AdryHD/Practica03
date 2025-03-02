@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto02.practica03;
+package Genero;
+
+import proyecto02.practica03.Pelicula;
 
 /**
  *
  * @author adryhd
  */
-public class ActionMovie extends Movie {
-    public ActionMovie(String name, int duration, int releaseYear) {
-        super(name, "Acción", duration, releaseYear);
+public class Terror extends Pelicula {
+    public Terror(String nombre, int duracion, int anioEstreno) {
+        super(nombre, "Terror", duracion, anioEstreno);
     }
 }
