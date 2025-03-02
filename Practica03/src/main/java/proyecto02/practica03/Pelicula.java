@@ -1,7 +1,5 @@
 package proyecto02.practica03;
 
-import Interfaz.PeliculasInterface;
-
 public abstract class Pelicula implements PeliculasInterface {
     private String nombre;
     private String genero;
