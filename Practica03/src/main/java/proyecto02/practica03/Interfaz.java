@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class InterfazPeliculas extends JFrame {
+public class Interfaz extends JFrame {
     private JPanel PanelPeliculas;
     private JComboBox menuPeliculasDsp;
     private JTable tablaCatalogo;
@@ -15,7 +15,7 @@ public class InterfazPeliculas extends JFrame {
     private JComboBox<String> DesplegablePeliculas;
 
 
-    public InterfazPeliculas() {
+    public Interfaz() {
         // Configuración de la ventana
         setContentPane(PanelPeliculas);
         setTitle("Catálogo de Películas");
@@ -34,7 +34,7 @@ public class InterfazPeliculas extends JFrame {
         );
 
         //llamamos la lista que creamos en gestion de archivos
-        ArrayList<String> basePelis = gestionArchivos.cargarArchivo();
+        ArrayList<String> basePelis = Config.cargarArchivo();
 
         //se recorre la lista donde cargamos lo del archivo suponiendo que esta separado por comas
 
