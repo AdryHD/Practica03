@@ -15,23 +15,21 @@ public class Interfaz extends JFrame {
     private JScrollPane TablaPeliculas;
     private JComboBox<String> DesplegablePeliculas;
 
-
     public Interfaz() {
         setContentPane(PanelPrincipal);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setSize(400, 300);
         setVisible(true);
         ingresaTabla();
     }
-
 
     public void ingresaTabla() {
         DefaultTableModel tablapelis = new DefaultTableModel(
                 new String[]{"PELICULA", "GENERO", "TIEMPO", "ESTRENO"}, 0
         );
 
-        ArrayList<String> basePelis = Config.cargartxt();
-        for (String linea : basePelis) {
+        ArrayList<String> bdPeli = Config.cargartxt();
+        for (String linea : bdPeli) {
             String[] fila = linea.split(",");
             if (fila.length == 4) {
                 tablapelis.addRow(fila);
@@ -41,7 +39,6 @@ public class Interfaz extends JFrame {
         }
 
         TableroJT.setModel(tablapelis);
-
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,7 +47,6 @@ public class Interfaz extends JFrame {
                 TableRowSorter<DefaultTableModel> lecturaPeli = new TableRowSorter<>(tablaPeli);
                 TableroJT.setRowSorter(lecturaPeli);
                 lecturaPeli.setRowFilter(RowFilter.regexFilter(genero, 1));
-
                 if (genero.equals("Catalogo")) {
                     lecturaPeli.setRowFilter(null);
                 } else {

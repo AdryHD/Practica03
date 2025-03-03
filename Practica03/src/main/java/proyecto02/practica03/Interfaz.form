@@ -10,7 +10,7 @@
       <enabled value="true"/>
       <font name="Consolas" size="11" style="1"/>
     </properties>
-    <border type="none"/>
+    <border type="etched" title-justification="2"/>
     <children>
       <hspacer id="998f4">
         <constraints>
@@ -38,7 +38,7 @@
         </constraints>
         <properties>
           <labelFor value="e6fde"/>
-          <text value="CATALOGO"/>
+          <text value="- CATALOGO -"/>
         </properties>
       </component>
       <scrollpane id="e6fde" binding="TablaPeliculas">
@@ -48,7 +48,7 @@
         <properties>
           <background color="-4475720"/>
         </properties>
-        <border type="line" title-justification="2">
+        <border type="bevel-lowered" title-justification="2">
           <font/>
           <color color="-11578269"/>
         </border>
@@ -57,6 +57,8 @@
             <constraints/>
             <properties>
               <autoResizeMode value="2"/>
+              <foreground color="-16777216"/>
+              <gridColor color="-6576701"/>
               <intercellSpacing width="2" height="2"/>
             </properties>
           </component>
