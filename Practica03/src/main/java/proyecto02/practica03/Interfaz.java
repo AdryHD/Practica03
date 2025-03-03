@@ -8,28 +8,26 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Interfaz extends JFrame {
-    private JPanel PanelPeliculas;
-    private JComboBox menuPeliculasDsp;
-    private JTable tablaCatalogo;
-    private JLabel TituloPanel;
-    private JScrollPane TablaTotal;
+    private JPanel PanelPrincipal;
+    private JComboBox menu;
+    private JTable TableroJT;
+    private JLabel TituloCatalogo;
+    private JScrollPane TablaPeliculas;
     private JComboBox<String> DesplegablePeliculas;
 
 
     public Interfaz() {
-
-        setContentPane(PanelPeliculas);
-        setTitle("Catálogo de Películas");
+        setContentPane(PanelPrincipal);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 500);
+        setSize(400, 400);
         setVisible(true);
-        crearTabla();
+        ingresaTabla();
     }
 
 
-    public void crearTabla() {
+    public void ingresaTabla() {
         DefaultTableModel tablapelis = new DefaultTableModel(
-                new String[]{"Pelicula", "Genero", "Tiempo", "Año Estreno"}, 0
+                new String[]{"PELICULA", "GENERO", "TIEMPO", "ESTRENO"}, 0
         );
 
         ArrayList<String> basePelis = Config.cargartxt();
@@ -42,22 +40,21 @@ public class Interfaz extends JFrame {
             }
         }
 
-        tablaCatalogo.setModel(tablapelis);
+        TableroJT.setModel(tablapelis);
 
-        menuPeliculasDsp.addActionListener(new ActionListener() {
+        menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String genero = menu.getSelectedItem().toString();
+                DefaultTableModel tablaPeli = (DefaultTableModel) TableroJT.getModel();
+                TableRowSorter<DefaultTableModel> lecturaPeli = new TableRowSorter<>(tablaPeli);
+                TableroJT.setRowSorter(lecturaPeli);
+                lecturaPeli.setRowFilter(RowFilter.regexFilter(genero, 1));
 
-                String generoSeleccionado = menuPeliculasDsp.getSelectedItem().toString();
-                DefaultTableModel tablaPelis = (DefaultTableModel) tablaCatalogo.getModel();
-                TableRowSorter<DefaultTableModel> lecturaPelis = new TableRowSorter<>(tablaPelis);
-                tablaCatalogo.setRowSorter(lecturaPelis);
-                lecturaPelis.setRowFilter(RowFilter.regexFilter(generoSeleccionado, 1));
-
-                if (generoSeleccionado.equals("Catalogo")) {
-                    lecturaPelis.setRowFilter(null);
+                if (genero.equals("Catalogo")) {
+                    lecturaPeli.setRowFilter(null);
                 } else {
-                    lecturaPelis.setRowFilter(RowFilter.regexFilter(generoSeleccionado, 1));
+                    lecturaPeli.setRowFilter(RowFilter.regexFilter(genero, 1));
                 }
             }
         });
