@@ -1,4 +1,5 @@
 package proyecto02.practica03;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -32,33 +33,25 @@ public class Interfaz extends JFrame {
         );
 
         ArrayList<String> basePelis = Config.cargartxt();
-
-
-
         for (String linea : basePelis) {
             String[] fila = linea.split(",");
             if (fila.length == 4) {
                 tablapelis.addRow(fila);
             } else {
-                System.out.println("Línea erronea: " + linea);
+                System.out.println("Dato erroneo de la linea: " + linea);
             }
         }
 
         tablaCatalogo.setModel(tablapelis);
-
-
 
         menuPeliculasDsp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 String generoSeleccionado = menuPeliculasDsp.getSelectedItem().toString();
-
                 DefaultTableModel tablaPelis = (DefaultTableModel) tablaCatalogo.getModel();
-
                 TableRowSorter<DefaultTableModel> lecturaPelis = new TableRowSorter<>(tablaPelis);
                 tablaCatalogo.setRowSorter(lecturaPelis);
-
                 lecturaPelis.setRowFilter(RowFilter.regexFilter(generoSeleccionado, 1));
 
                 if (generoSeleccionado.equals("Catalogo")) {

@@ -1,10 +1,14 @@
 package Genero;
 
-import proyecto02.practica03.Peliculas;
+import proyecto02.practica03.Peli;
 
 
+/**
+ *
+ * @author adryhd
+ */
 
-public class Pelicula implements Peliculas {
+public class Pelicula implements Peli {
 
     private String nombre;
     private String genero;
@@ -44,10 +48,10 @@ public class Pelicula implements Peliculas {
     @Override
     public String toString() {
         return "Pelicula{" +
-                "nombre='" + nombre + '\'' +
-                ", genero='" + genero + '\'' +
-                ", duracion=" + duracion +
-                ", año estreno=" + annoEstreno +
+                "Nombre='" + nombre + '\'' +
+                ", Genero='" + genero + '\'' +
+                ", Duracion=" + duracion +
+                ", Año estreno=" + annoEstreno +
                 '}';
     }
 }
