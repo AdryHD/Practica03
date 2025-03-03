@@ -2,14 +2,12 @@ package proyecto02.practica03;
 import java.io.*;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author adryhd
  */
 
 public class Config {
-
 
     public static ArrayList<String> cargartxt() {
         ArrayList<String> lineas = new ArrayList<>();
@@ -22,7 +20,7 @@ public class Config {
             }
             txt.close();
         } catch (IOException e) {
-            System.out.println("Error al leer el txt: " + e.getMessage());
+            System.out.println("No se puede leer el txt: " + e.getMessage());
         }
         return lineas;
     }
