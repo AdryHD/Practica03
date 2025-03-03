@@ -23,7 +23,6 @@ public class Pelicula implements Peli {
         this.annoEstreno = annoEstreno;
     }
 
-
     @Override
     public String getNombre() {
         return "";
@@ -45,15 +44,13 @@ public class Pelicula implements Peli {
     }
 
 
-
-
     @Override
     public String toString() {
         return "Pelicula{" +
-                "Nombre='" + nombre + '\'' +
-                ", Genero='" + genero + '\'' +
-                ", Duracion=" + duracion +
-                ", Año estreno=" + annoEstreno +
+                "annoEstreno=" + annoEstreno +
+                ", nombre='" + nombre + '\'' +
+                ", genero='" + genero + '\'' +
+                ", duracion=" + duracion +
                 '}';
     }
 }

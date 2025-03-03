@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class Interfaz extends JFrame {
     private JPanel JPPrincipal;
     private JComboBox menu;
-    private JTable TableroJT;
-    private JLabel TituloCatalogo;
-    private JScrollPane TablaPeliculas;
+    private JTable JTablero;
+    private JLabel TtlCatalogo;
+    private JScrollPane TablaLista;
 
     public Interfaz() {
         setContentPane(JPPrincipal);
@@ -36,14 +36,14 @@ public class Interfaz extends JFrame {
             }
         }
 
-        TableroJT.setModel(tabla);
+        JTablero.setModel(tabla);
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String genero = menu.getSelectedItem().toString();
-                DefaultTableModel tablaPeli = (DefaultTableModel) TableroJT.getModel();
+                DefaultTableModel tablaPeli = (DefaultTableModel) JTablero.getModel();
                 TableRowSorter<DefaultTableModel> lectura = new TableRowSorter<>(tablaPeli);
-                TableroJT.setRowSorter(lectura);
+                JTablero.setRowSorter(lectura);
                 lectura.setRowFilter(RowFilter.regexFilter(genero, 1));
                 if (genero.equals("Lista")) {
                     lectura.setRowFilter(null);
@@ -53,5 +53,4 @@ public class Interfaz extends JFrame {
             }
         });
     }
-
 }
